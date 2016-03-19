@@ -42,4 +42,6 @@ if __name__ == "__main__":
     MyTCPHandler.searchEngine = movitSearch.MovitSearch()
     # Activate the server; this will keep running until you
     # interrupt the program with Ctrl-C
+    # set maximum request queue size up
+    server.request_queue_size = 10;
     server.serve_forever()
