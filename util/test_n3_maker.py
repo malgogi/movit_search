@@ -1,6 +1,7 @@
 import json, math
 import numpy as np
 import codecs
+import re
 
 movies = json.loads( open( '../data/formatted_docs.json' ).read() )
 #print( items )
@@ -28,20 +29,14 @@ with codecs.open( file_config[ "name" ], 'w', encoding='utf8' ) as f:
 
     for movie in movies:
         temp = ""
-        temp_name = ""
         for actor in movie[ "actors" ]:
             
             #movie directed by actor
-            temp_name += movie[ "name" ].replace('/', '_');
-            temp_name = temp_name.replace(':','');
-            temp_name = temp_name.replace('!','');
-            temp_name = temp_name.replace('#','');
-            temp_name = temp_name.replace('&','');
-            temp_name = temp_name.replace('*','');
-            temp_name = temp_name.replace('.','');
-            temp += ":" + temp_name.replace(' ', '_' ) + " :directed_by " + ":" + actor.replace( ' ', '_' ) + ".\n";
+            temp_name = re.sub('[^a-zA-Z0-9]', '_', movie[ "name" ]);
+            temp_actor = re.sub('[^a-zA-Z0-9]', '_', actor );
+            temp += ":" + temp_name + " :directed_by " + ":" + temp_actor + ".\n";
             #actors acting  movie
-            temp += ":" + actor.replace( ' ', '_' ) + " :act " + ":" + temp_name.replace(' ', '_' ) + ".\n";
+            temp += ":" + temp_actor + " :act " + ":" + temp_name + ".\n";
 
         f.write( temp );
     
