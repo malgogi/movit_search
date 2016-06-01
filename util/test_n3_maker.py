@@ -28,12 +28,20 @@ with codecs.open( file_config[ "name" ], 'w', encoding='utf8' ) as f:
 
     for movie in movies:
         temp = ""
-
+        temp_name = ""
         for actor in movie[ "actors" ]:
+            
             #movie directed by actor
-            temp += ":" + movie[ "name" ].replace(' ', '_' ) + " :directed_by " + ":" + actor.replace( ' ', '_' ) + ".\n";
+            temp_name += movie[ "name" ].replace('/', '_');
+            temp_name = temp_name.replace(':','');
+            temp_name = temp_name.replace('!','');
+            temp_name = temp_name.replace('#','');
+            temp_name = temp_name.replace('&','');
+            temp_name = temp_name.replace('*','');
+            temp_name = temp_name.replace('.','');
+            temp += ":" + temp_name.replace(' ', '_' ) + " :directed_by " + ":" + actor.replace( ' ', '_' ) + ".\n";
             #actors acting  movie
-            temp += ":" + actor.replace( ' ', '_' ) + " :act " + ":" + movie[ "name" ].replace(' ', '_' ) + ".\n";
+            temp += ":" + actor.replace( ' ', '_' ) + " :act " + ":" + temp_name.replace(' ', '_' ) + ".\n";
 
         f.write( temp );
     
