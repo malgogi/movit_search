@@ -37,6 +37,10 @@ with codecs.open( file_config[ "name" ], 'w', encoding='utf8' ) as f:
             temp += ":" + temp_name + " :directed_by " + ":" + temp_actor + ".\n";
             #actors acting  movie
             temp += ":" + temp_actor + " :act " + ":" + temp_name + ".\n";
-
+            temp += ":" + temp_name + " :date " + ":" + movie["date"][-4:] + ".\n";
+            temp += ":" + temp_name;
+            for genre in movie["genre"]:
+                temp += " :genre " + ":" +re.sub('[^a-zA-Z0-9]', '_', genre);
+            temp += ".\n";
         f.write( temp );
     
