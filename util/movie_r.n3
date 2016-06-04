@@ -1,9 +1,22 @@
 @prefix log: <http://www.w3.org/2000/10/swap/log#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix : <http://www.agfa.com/w3c/euler/moives#>.
+@prefix math: <http://www.w3.org/2000/10/swap/math#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
 
-{ ?A :directed_by ?B } => { ?A :date ?C }.
-{ ?B :act ?D } => { ?D :date ?E}.
-{ ?E owl:sameAs ?C} => { ?A :recommend ?D}.
+#{ ?A :directed_by ?B } => { ?A :date ?C }.
+#{ ?B :act ?D } => { ?D :date ?E}.
+#{ ?E owl:sameAs ?C} => { ?A :recommend ?D}.
+
+#{ ?A :directed_by ?B. ?B :act ?D. ?A :date ?C. ?D :date ?E. (?C ?E )math:difference 0. } => { ?A :recommend ?D }.
+
+{ ?A :equals ?B. } => { ?A :equals ?B. }.
+
+{ ?I list:in ?L } => { ?I list:in ?L }.
+
+{ ?L a rdf:List } => { ?L a rdf:List }.
+
+
 

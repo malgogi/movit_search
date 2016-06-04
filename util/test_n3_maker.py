@@ -23,24 +23,50 @@ n3File += "@prefix : <http://www.agfa.com/w3c/euler/moives#>.\n\n";
 
 #rule
 #if user like movie, also like other movie
+# with codecs.open( file_config[ "name" ], 'w', encoding='utf8' ) as f:
+#     f.write( n3File )
+
+
+#     for movie in movies:
+#         temp = ""
+#         temp_name = re.sub('[^a-zA-Z0-9]', '_', movie[ "name" ]);
+
+#         #actor rule
+#         for actor in movie[ "actors" ]:
+#             temp_actor = re.sub('[^a-zA-Z0-9]', '_', actor );
+#             temp += ":" + temp_name + " :directed_by " + ":" + temp_actor + ".\n";
+#             #actors acting  movie
+#             temp += ":" + temp_actor + " :act " + ":" + temp_name + ".\n";
+
+#         #date rule
+#         temp += ":" + temp_name + " :date " + ":" + movie["date"][-4:] + ".\n";
+        
+#         #genre rule
+#         for genre in movie["genre"]:
+#             temp += ":" + temp_name + " :genre " + ":" +re.sub('[^a-zA-Z0-9]', '_', genre) + ".\n";
+        
+#         f.write( temp );
+
 with codecs.open( file_config[ "name" ], 'w', encoding='utf8' ) as f:
     f.write( n3File )
 
 
     for movie in movies:
-        temp = ""
+        temp = "["
+        movie_name = re.sub('[^a-zA-Z0-9]', '_', movie[ "name" ]);
+
+        #actor rule
         for actor in movie[ "actors" ]:
-            
-            #movie directed by actor
-            temp_name = re.sub('[^a-zA-Z0-9]', '_', movie[ "name" ]);
             temp_actor = re.sub('[^a-zA-Z0-9]', '_', actor );
             temp += ":" + temp_name + " :directed_by " + ":" + temp_actor + ".\n";
             #actors acting  movie
             temp += ":" + temp_actor + " :act " + ":" + temp_name + ".\n";
-            temp += ":" + temp_name + " :date " + ":" + movie["date"][-4:] + ".\n";
-            temp += ":" + temp_name;
-            for genre in movie["genre"]:
-                temp += " :genre " + ":" +re.sub('[^a-zA-Z0-9]', '_', genre);
-            temp += ".\n";
+
+        #date rule
+        temp += ":" + temp_name + " :date " + ":" + movie["date"][-4:] + ".\n";
+        
+        #genre rule
+        for genre in movie["genre"]:
+            temp += ":" + temp_name + " :genre " + ":" +re.sub('[^a-zA-Z0-9]', '_', genre) + ".\n";
+        
         f.write( temp );
-    
