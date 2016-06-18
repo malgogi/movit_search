@@ -19,4 +19,11 @@
 { ?L a rdf:List } => { ?L a rdf:List }.
 
 
+{ ?A rdf:first ?B } => { ?A rdf:first ?B }.
+
+{ ?A a ?B } => { ?A a ?B }.
+
+{ ?A owl:sameAs ?B } => { ?A owl:sameAs ?B }.
+{ ?A owl:differentFrom ?B } => { ?A owl:differentFrom ?B }.
+
 
