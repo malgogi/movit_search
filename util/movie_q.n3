@@ -1,6 +1,13 @@
-@prefix log: <http://www.w3.org/2000/10/swap/log#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
-@prefix : <http://www.agfa.com/w3c/euler/moives#>.
+@prefix log: <http://www.w3.org/2000/10/swap/log#>.
+@prefix math: <http://www.w3.org/2000/10/swap/math#>.
+@prefix list: <http://www.w3.org/2000/10/swap/list#>.
+@prefix e: <http://eulersharp.sourceforge.net/2003/03swap/log-rules#>.
+@prefix prolog: <http://eulersharp.sourceforge.net/2003/03swap/prolog#>.
+@prefix genres: <http://localhost:9000/n3/genres#>.
+@prefix actors: <http://localhost:9000/n3/actors#>.
+@prefix : <http://localhost:9000/n3/movies#>.
 
-{ ?A :directed_by ?B } => { ?A :directed_by ?B }.
+{ :Mississippi_Grind :alsoLike ?O2. } => { :Mississippi_Grind :alsoLike ?O2. }.
