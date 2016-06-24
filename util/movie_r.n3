@@ -36,6 +36,7 @@
 #{?L rdf:first ?I; a rdf:List} => {?I list:in ?L}.
 #{?L rdf:rest ?R; a rdf:List. ?I list:in ?R} => {?I list:in ?L}.
 
+#genre :parteOf rule
 {
 	?O1 :id ?I1;
 	  :genre ?G1;
@@ -76,6 +77,47 @@
 	?G1 rdf:rest rdf:nil.
 	
 } =>{ ?G1 :notpartOf ?G2 }.
+#actor :partOfAct rule
+{
+	?O1 :id ?I1;
+	  :genre ?G1;
+	  :actor ?A1;
+	  :date ?D1.
+  	?O2 :id ?I2;
+	  :genre ?G2;
+	  :actor ?A2;
+	  :date ?D2.
+	?A1 rdf:first ?a1.
+  	?a1 list:in ?A2.
+	
+} =>{ ?A1 :partOfAct ?A2 }.
+
+{
+	?O1 :id ?I1;
+	  :genre ?G1;
+	  :actor ?A1;
+	  :date ?D1.
+  	?O2 :id ?I2;
+	  :genre ?G2;
+	  :actor ?A2;
+	  :date ?D2.
+	?A1 rdf:rest ?a1.
+  	?a1 rdf:first ?a2.
+  	?a2 list:in ?A2.
+	
+} =>{ ?A1 :partOfAct ?A2 }.
+{
+	?O1 :id ?I1;
+	  :genre ?G1;
+	  :actor ?A1;
+	  :date ?D1.
+  	?O2 :id ?I2;
+	  :genre ?G2;
+	  :actor ?A2;
+	  :date ?D2.
+	?A1 rdf:rest rdf:nil.
+	
+} =>{ ?A1 :notpartOfAct ?A2 }.
 
 # inference rule
 # 1. 연도가 같음
@@ -92,6 +134,7 @@
 	  :date ?D2.
   	?O1 owl:differentFrom ?O2.
   	?G1 :partOf ?G2.
+  	?A1 :partOfAct ?A2.
 
   	( ?D1 ?D2 ) math:difference 0.
 

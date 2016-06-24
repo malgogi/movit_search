@@ -24,12 +24,12 @@
 	  	]
 	];
 	:genre
-	[ rdf:first :jaeho; 
+	[ rdf:first :Horror; 
 	  rdf:rest 
 	  	[ 
-	  		rdf:first :abc;
+	  		rdf:first :Family;
 	  		rdf:rest [ 
-	  			rdf:first :jaeseung;
+	  			rdf:first :Action;
 	  			rdf:rest rdf:nil ]
 	  	]
 	];
@@ -46,7 +46,7 @@
 	  	[
 	  		rdf:first :Florentine_Lahme;
 	  		rdf:rest[
-	  			rdf:fifirst :Jessica_Cook;
+	  			rdf:first :Ryan_Reynolds;
 	  			rdf:rest rdf:nil ]
 	  	]
 	];
@@ -54,7 +54,7 @@
 	[ rdf:first :sex; 
 	  rdf:rest 
 	  	[ 
-	  		rdf:first :abc ;
+	  		rdf:first :Horror ;
 	  		rdf:rest [ 
 	  			rdf:first :cde ;
 	  			rdf:rest rdf:nil ]
