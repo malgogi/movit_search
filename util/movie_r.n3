@@ -47,18 +47,16 @@
 	?O1 :id ?I1;
 	  :name ?N1;
 	  :genre ?G1;
+	  :actor ?A1;
 	  :date ?D1.
   	?O2 :id ?I2;
 	  :name ?N2;
 	  :genre ?G2;
+	  :actor ?A2;
 	  :date ?D2.
   	?O1 owl:differentFrom ?O2.
   	?O1 :genre ?G2.
+  	?O1 :actor ?A2.
   	( ?D1 ?D2 ) math:difference 0.
 
-
 } => { ?O1 :alsoLike ?O2 }.
-
-
-
-{ ?O1 :alsoLike ?O2. } => { ?O1 :alsoLike ?O2. }.
