@@ -51,26 +51,26 @@
 	  	]
 	];
 	:genre
-	[ rdf:first :sex; 
+	[ rdf:first :cde; 
 	  rdf:rest 
 	  	[ 
-	  		rdf:first :Horror ;
+	  		rdf:first :abc ;
 	  		rdf:rest [ 
-	  			rdf:first :cde ;
+	  			rdf:first :Action ;
 	  			rdf:rest rdf:nil ]
 	  	]
 	];
 	:id 1;
 	:date 2015.
 
-:Stung 
+:IceMan 
 	:actor
 	[ rdf:first :abc;
 	  rdf:rest
 	  	[
-	  		rdf:first :Florentine_Lahme;
+	  		rdf:first :def;
 	  		rdf:rest[
-	  			rdf:first :Jessica_Cook;
+	  			rdf:first :Ryan_Reynolds;
 	  			rdf:rest rdf:nil ]
 	  	]
 	];
@@ -78,7 +78,7 @@
 	[ rdf:first :efg; 
 	  rdf:rest 
 	  	[ 
-	  		rdf:first :abc;
+	  		rdf:first :abce;
 	  		rdf:rest [ 
 	  			rdf:first :cde ;
 	  			rdf:rest rdf:nil ]
