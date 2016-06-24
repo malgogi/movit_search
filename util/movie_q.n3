@@ -9,5 +9,6 @@
 @prefix genres: <http://localhost:9000/n3/genres#>.
 @prefix actors: <http://localhost:9000/n3/actors#>.
 @prefix : <http://localhost:9000/n3/movies#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
 
-{ :Mississippi_Grind :alsoLike ?O2. } => { :Mississippi_Grind :alsoLike ?O2. }.
+{ ?O1 :alsoLike ?O2. } => { ?O1 :alsoLike ?O2. }.
